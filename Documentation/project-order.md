@@ -6,7 +6,7 @@ This guide provides the optimal development order for your Banking System projec
 
 ### **Step 1: Infrastructure \& CI/CD Setup (Cards 1-3)**
 
-#### 1. [Database] Setup PostgreSQL with Docker Compose ✅
+#### 1. [Database] Setup PostgreSQL with Docker Compose
 
 **Why First**: Foundation infrastructure - everything depends on having a working database
 
@@ -15,10 +15,21 @@ This guide provides the optimal development order for your Banking System projec
 - Test database connectivity
 - Set up environment variables
 
+#### 2. [Framework] Initialize NestJS application with TypeORM
 
-#### 2. [CI/CD] Set up basic GitHub Actions workflow
+**Why Second**: Framework provides structure for all subsequent development
 
-**Why Second**: Ensure code quality and testing from day one
+- Initialize NestJS project with CLI
+
+- Set up TypeORM integration with PostgreSQL
+
+- Configure environment management (ConfigModule)
+
+- Set up basic project structure and modules
+
+#### 3. [CI/CD] Set up basic GitHub Actions workflow
+
+**Why Third**: Ensure code quality and testing from day one
 
 - Create basic CI pipeline with PostgreSQL testing
 - Set up automated testing on pull requests
@@ -31,7 +42,7 @@ This guide provides the optimal development order for your Banking System projec
 
 #### 3. [Testing] Set up Jest testing framework
 
-**Why Third**: Testing infrastructure needed before writing business logic
+**Why Fourth**: Testing infrastructure needed before writing business logic
 
 - Configure Jest for unit and integration testing
 - Set up test database configuration
