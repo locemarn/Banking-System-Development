@@ -1,10 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
-# You recommend initialize nestjs before ci/cd?
-
-If yes, update this document file's order:
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Banking System Development - Implementation Order Guide
 
 This guide provides the optimal development order for your Banking System project, organized by logical dependencies and risk management principles.

@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
 # Banking System Development - Complete Project Guide
 
 A comprehensive guide to building a production-ready banking system from a simple monolith to an enterprise-grade modular platform. This project demonstrates modern software architecture patterns, security implementations, and operational excellence for financial services.
