@@ -1,1 +1,4 @@
 .vscode
+node_modules
+.env
+create0banking-cards.js
