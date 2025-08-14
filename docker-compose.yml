@@ -20,8 +20,31 @@ services:
       timeout: 10s
       retries: 3
 
+  # Test database for CI/CD and development testing
+  postgres-test:
+    image: postgres:15.4
+    container_name: postgres-test
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: ${TEST_POSTGRES_USER:-banking_test_user}
+      POSTGRES_PASSWORD: ${TEST_POSTGRES_PASSWORD:-test_password}
+      POSTGRES_DB: ${TEST_POSTGRES_DB:-banking_test}
+    volumes:
+      - postgres_test_data:/var/lib/postgresql/data
+    networks:
+      - microservices
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${TEST_POSTGRES_USER:-banking_test_user} -d ${TEST_POSTGRES_DB:-banking_test}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    profiles:
+      - test
+
 volumes:
   postgres_data:
+  postgres_test_data:
 
 networks:
   microservices:
