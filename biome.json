@@ -45,6 +45,14 @@
     }
   },
   "html": { "formatter": { "selfCloseVoidElements": "always" } },
+  "graphql": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2,
+      "lineEnding": "lf"
+    }
+  },
   "assist": {
     "enabled": true,
     "actions": { "source": { "organizeImports": "on" } }
