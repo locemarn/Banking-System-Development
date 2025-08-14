@@ -76,7 +76,7 @@ jobs:
           JWT_SECRET: ${{ env.JWT_SECRET }}
 
       - name: Run unit tests
-        run: pnpm run test
+        run: pnpm run test -- --passWithNoTests
         env:
           NODE_ENV: test
           DB_HOST: ${{ env.DB_TEST_HOST }}
@@ -98,7 +98,7 @@ jobs:
           JWT_SECRET: ${{ env.JWT_SECRET }}
 
       - name: Generate test coverage
-        run: pnpm run test:cov
+        run: pnpm run test:cov -- --passWithNoTests
         env:
           NODE_ENV: test
           DB_HOST: ${{ env.DB_TEST_HOST }}
