@@ -1,5 +1,10 @@
 <img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
 
+# You recommend initialize nestjs before ci/cd?
+
+If yes, update this document file's order:
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
+
 # Banking System Development - Implementation Order Guide
 
 This guide provides the optimal development order for your Banking System project, organized by logical dependencies and risk management principles.
@@ -8,7 +13,7 @@ This guide provides the optimal development order for your Banking System projec
 
 ### **Step 1: Infrastructure \& CI/CD Setup (Cards 1-3)**
 
-#### 1. [Database] Setup PostgreSQL with Docker Compose
+#### 1. [Database] Setup PostgreSQL with Docker Compose ✅
 
 **Why First**: Foundation infrastructure - everything depends on having a working database
 
@@ -445,6 +450,257 @@ This guide provides the optimal development order for your Banking System projec
 ***
 
 **🚀 Ready to start? Begin with Card \#1: Setting up PostgreSQL with Docker Compose, followed immediately by CI/CD setup for quality assurance from day one!**
+
+<div style="text-align: center">⁂</div>
+
+[^1]: https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark@2x.png
+
+**Yes, I recommend initializing NestJS before CI/CD setup.** Here's why:
+
+NestJS provides:
+
+- Built-in testing framework (Jest) with proper configuration
+- TypeScript compilation pipeline
+- Built-in linting and formatting tools
+- Database integration patterns
+- Proper project structure for CI/CD
+
+
+# Banking System Development - Implementation Order Guide
+
+This guide provides the optimal development order for your Banking System project, organized by logical dependencies and risk management principles.
+
+## 🏗️ Phase 1: Core Foundation - Implementation Order
+
+### **Step 1: Infrastructure \& Framework Setup (Cards 1-3)**
+
+#### 1. [Database] Setup PostgreSQL with Docker Compose
+
+**Why First**: Foundation infrastructure - everything depends on having a working database
+
+- Set up minimal Docker Compose with PostgreSQL service
+- Configure basic environment variables
+- Test database connectivity
+- Skip complex initialization (NestJS will handle this)
+
+
+#### 2. [Framework] Initialize NestJS application with TypeORM
+
+**Why Second**: Framework provides structure for all subsequent development
+
+- Initialize NestJS project with CLI
+- Set up TypeORM integration with PostgreSQL
+- Configure environment management (ConfigModule)
+- Set up basic project structure and modules
+- Configure database connection and health checks
+
+
+#### 3. [CI/CD] Set up GitHub Actions workflow for NestJS
+
+**Why Third**: Leverage NestJS built-in tools for better CI/CD
+
+- Create CI pipeline using NestJS testing framework
+- Set up automated testing with Jest (built into NestJS)
+- Configure TypeScript compilation checks
+- Set up branch protection rules:
+    - ✅ Require status checks to pass
+    - ✅ Require pull request reviews
+    - ✅ Require CI workflow to pass
+- Add ESLint and Prettier checks (NestJS defaults)
+
+
+### **Step 2: Core Data Models (Cards 4-7)**
+
+#### 4. [Models] Create User entity with TypeORM
+
+**Dependencies**: NestJS and TypeORM setup completed
+
+- Create User entity with TypeORM decorators
+- Add email uniqueness validation
+- Implement document number (CPF) validation
+- Set up timestamps and status fields
+- Write comprehensive unit tests with NestJS testing utilities
+
+
+#### 5. [Models] Create Account entity with business constraints
+
+**Dependencies**: User entity completed
+
+- Implement Account entity with foreign key to User
+- Add balance management with decimal precision
+- Create account types enum (CHECKING, SAVINGS, INVESTMENT)
+- Implement unique account number generation
+- Add entity validation tests
+
+
+#### 6. [Models] Create Transaction entity with audit trail
+
+**Dependencies**: Account entity completed
+
+- Create Transaction entity with from/to account relationships
+- Implement amount with proper decimal precision
+- Add transaction types and status enums
+- Include reference ID for idempotency
+- Test entity constraints
+
+
+#### 7. [Models] Create TransactionLog entity for compliance
+
+**Dependencies**: Transaction entity completed
+
+- Create audit trail for transaction status changes
+- Add user attribution for changes
+- Implement immutable logging system
+- Test audit trail functionality
+
+
+### **Step 3: API Foundation (Cards 8-10)**
+
+#### 8. [GraphQL] Set up GraphQL with NestJS
+
+**Dependencies**: All entities completed
+
+- Install and configure @nestjs/graphql
+- Set up GraphQL schema-first or code-first approach
+- Create User, Account, Transaction GraphQL types
+- Configure GraphQL Playground
+- Test schema generation
+
+
+#### 9. [Auth] Implement JWT authentication with NestJS
+
+**Dependencies**: User entity, GraphQL setup
+
+- Install @nestjs/jwt and @nestjs/passport
+- Implement JwtAuthGuard and JwtStrategy
+- Create AuthModule and AuthService
+- Set up JWT token generation and validation
+- Add authentication tests
+
+
+#### 10. [Security] Add password hashing with NestJS
+
+**Dependencies**: User entity, AuthModule
+
+- Implement password hashing in AuthService
+- Add password comparison for login
+- Configure bcrypt integration
+- Add password strength validation
+- Test password security
+
+
+### **Step 4: Core API Operations (Cards 11-13)**
+
+#### 11. [GraphQL] Implement User resolvers
+
+**Dependencies**: JWT auth, GraphQL setup
+
+- Create UserResolver with registration/login mutations
+- Implement user profile queries with authentication
+- Add proper error handling and validation
+- Use NestJS guards for protection
+- Add comprehensive resolver tests
+
+
+#### 12. [Security] Implement authentication guards
+
+**Dependencies**: JWT implementation
+
+- Create and configure JwtAuthGuard
+- Implement role-based guards (RolesGuard)
+- Add user context injection
+- Protect sensitive resolvers
+- Test guard functionality
+
+
+#### 13. [GraphQL] Implement Account resolvers
+
+**Dependencies**: Account entity, authentication guards
+
+- Create AccountResolver with CRUD operations
+- Implement account query with ownership validation
+- Add account balance queries with security
+- Implement business rule validation
+- Add account operation tests
+
+
+### **Step 5: Banking Operations (Card 14)**
+
+#### 14. [GraphQL] Implement Transaction resolvers
+
+**Dependencies**: Transaction entity, Account resolvers
+
+- Create TransactionResolver with banking operations
+- Implement transfer mutation with database transactions
+- Add deposit and withdrawal mutations
+- Implement transaction history with pagination
+- Add comprehensive transaction tests
+
+
+### **Step 6: Quality Assurance \& Documentation (Cards 15-16)**
+
+#### 15. [Testing] Enhance test suite with NestJS tools
+
+**Dependencies**: All core functionality implemented
+
+- Expand unit tests using NestJS testing utilities
+- Create e2e tests with NestJS test framework
+- Test error scenarios and edge cases
+- Achieve 80%+ code coverage
+- Add integration tests for database operations
+
+
+#### 16. [Documentation] Create comprehensive API documentation
+
+**Dependencies**: Complete GraphQL API
+
+- Configure GraphQL Playground with NestJS
+- Generate API documentation from GraphQL schema
+- Document authentication flow
+- Create developer guides and examples
+- Add OpenAPI/Swagger documentation if needed
+
+***
+
+## 🎯 Milestone Checkpoints
+
+### **Checkpoint 1**: Framework Foundation Ready
+
+- [ ] PostgreSQL running in Docker
+- [ ] NestJS application initialized and running
+- [ ] TypeORM connected to database
+- [ ] CI/CD pipeline functional with NestJS
+- [ ] All entities created and migrations working
+
+
+### **Checkpoint 2**: Authentication Working
+
+- [ ] User registration functional through GraphQL
+- [ ] Login returns valid JWT tokens
+- [ ] Protected endpoints require authentication
+- [ ] All authentication tests passing
+
+
+### **Checkpoint 3**: Core Banking Operations
+
+- [ ] Users can create accounts through API
+- [ ] Money transfers work atomically
+- [ ] Transaction history displays correctly
+- [ ] All integration tests passing
+
+
+### **Checkpoint 4**: Production Ready Foundation
+
+- [ ] All tests passing with high coverage
+- [ ] API documented and accessible via GraphQL Playground
+- [ ] Error handling comprehensive
+- [ ] CI/CD enforcing quality standards with NestJS tools
+
+***
+
+[Rest of Phase 2, 3, and 4 sections remain unchanged...]
+
+**🚀 Ready to start? Begin with minimal PostgreSQL Docker setup, then immediately initialize your NestJS application for a solid development foundation!**
 
 <div style="text-align: center">⁂</div>
 
