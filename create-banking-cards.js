@@ -1,14 +1,14 @@
-const { Octokit } = require("@octokit/rest");
+const { Octokit } = require('@octokit/rest');
 
 const octokit = new Octokit({
   auth: process.env.GITHUB_TOKEN,
 });
 
 const bankingSystemTasks = {
-  "phase-1": [
+  'phase-1': [
     // Database & Setup
     {
-      title: "[Database] Setup PostgreSQL with Docker Compose",
+      title: '[Database] Setup PostgreSQL with Docker Compose',
       body: `## Objective
 Create Docker Compose configuration for PostgreSQL database with proper initialization scripts
 
@@ -28,10 +28,10 @@ Create Docker Compose configuration for PostgreSQL database with proper initiali
 - [ ] Database accessible from application
 - [ ] Tests verify database connection
 - [ ] Documentation updated`,
-      labels: ["phase-1", "database", "setup", "medium"]
+      labels: ['phase-1', 'database', 'setup', 'medium'],
     },
     {
-      title: "[Models] Create User model with validation",
+      title: '[Models] Create User model with validation',
       body: `## Objective
 Implement User model with email, password hash, document validation, and security features
 
@@ -52,10 +52,10 @@ Implement User model with email, password hash, document validation, and securit
 - [ ] Validation rules working
 - [ ] Unit tests written
 - [ ] Migration created`,
-      labels: ["phase-1", "database", "models", "medium"]
+      labels: ['phase-1', 'database', 'models', 'medium'],
     },
     {
-      title: "[Models] Create Account model with business constraints",
+      title: '[Models] Create Account model with business constraints',
       body: `## Objective
 Implement Account model with balance management, account types, and business rules
 
@@ -70,10 +70,10 @@ Implement Account model with balance management, account types, and business rul
 - Dependencies: User model completed
 - Estimated effort: Medium
 - Phase: 1`,
-      labels: ["phase-1", "database", "models", "medium"]
+      labels: ['phase-1', 'database', 'models', 'medium'],
     },
     {
-      title: "[Models] Create Transaction model with audit trail",
+      title: '[Models] Create Transaction model with audit trail',
       body: `## Objective
 Implement Transaction model for money transfers with comprehensive audit capabilities
 
@@ -88,10 +88,10 @@ Implement Transaction model for money transfers with comprehensive audit capabil
 - Dependencies: Account model completed
 - Estimated effort: Large
 - Phase: 1`,
-      labels: ["phase-1", "database", "models", "large"]
+      labels: ['phase-1', 'database', 'models', 'large'],
     },
     {
-      title: "[Models] Create TransactionLog model for compliance",
+      title: '[Models] Create TransactionLog model for compliance',
       body: `## Objective
 Implement TransactionLog model for audit trail and compliance requirements
 
@@ -106,11 +106,11 @@ Implement TransactionLog model for audit trail and compliance requirements
 - Dependencies: Transaction model completed
 - Estimated effort: Small
 - Phase: 1`,
-      labels: ["phase-1", "database", "models", "small"]
+      labels: ['phase-1', 'database', 'models', 'small'],
     },
     // GraphQL API
     {
-      title: "[GraphQL] Design User, Account, Transaction schema",
+      title: '[GraphQL] Design User, Account, Transaction schema',
       body: `## Objective
 Create comprehensive GraphQL schema for all core banking entities
 
@@ -125,10 +125,10 @@ Create comprehensive GraphQL schema for all core banking entities
 - Dependencies: Database models completed
 - Estimated effort: Large
 - Phase: 1`,
-      labels: ["phase-1", "graphql", "api", "large"]
+      labels: ['phase-1', 'graphql', 'api', 'large'],
     },
     {
-      title: "[GraphQL] Implement User registration/login resolvers",
+      title: '[GraphQL] Implement User registration/login resolvers',
       body: `## Objective
 Create GraphQL resolvers for user registration and authentication
 
@@ -143,10 +143,10 @@ Create GraphQL resolvers for user registration and authentication
 - Dependencies: GraphQL schema, User model
 - Estimated effort: Large
 - Phase: 1`,
-      labels: ["phase-1", "graphql", "authentication", "large"]
+      labels: ['phase-1', 'graphql', 'authentication', 'large'],
     },
     {
-      title: "[GraphQL] Implement Account management resolvers",
+      title: '[GraphQL] Implement Account management resolvers',
       body: `## Objective
 Create GraphQL resolvers for account creation and management
 
@@ -161,10 +161,10 @@ Create GraphQL resolvers for account creation and management
 - Dependencies: Account model, Authentication
 - Estimated effort: Medium
 - Phase: 1`,
-      labels: ["phase-1", "graphql", "accounts", "medium"]
+      labels: ['phase-1', 'graphql', 'accounts', 'medium'],
     },
     {
-      title: "[GraphQL] Implement Transaction processing resolvers",
+      title: '[GraphQL] Implement Transaction processing resolvers',
       body: `## Objective
 Create GraphQL resolvers for transaction processing and history
 
@@ -179,11 +179,11 @@ Create GraphQL resolvers for transaction processing and history
 - Dependencies: Transaction model, Account resolvers
 - Estimated effort: Large
 - Phase: 1`,
-      labels: ["phase-1", "graphql", "transactions", "large"]
+      labels: ['phase-1', 'graphql', 'transactions', 'large'],
     },
     // Authentication & Security
     {
-      title: "[Auth] Implement JWT token authentication",
+      title: '[Auth] Implement JWT token authentication',
       body: `## Objective
 Create JWT authentication system with secure token generation and validation
 
@@ -198,10 +198,10 @@ Create JWT authentication system with secure token generation and validation
 - Dependencies: User model
 - Estimated effort: Medium
 - Phase: 1`,
-      labels: ["phase-1", "authentication", "security", "medium"]
+      labels: ['phase-1', 'authentication', 'security', 'medium'],
     },
     {
-      title: "[Security] Add password hashing with bcrypt",
+      title: '[Security] Add password hashing with bcrypt',
       body: `## Objective
 Implement secure password hashing using bcrypt
 
@@ -216,10 +216,10 @@ Implement secure password hashing using bcrypt
 - Dependencies: User model
 - Estimated effort: Small
 - Phase: 1`,
-      labels: ["phase-1", "security", "authentication", "small"]
+      labels: ['phase-1', 'security', 'authentication', 'small'],
     },
     {
-      title: "[Security] Create authentication middleware",
+      title: '[Security] Create authentication middleware',
       body: `## Objective
 Implement middleware for protecting GraphQL resolvers
 
@@ -234,11 +234,11 @@ Implement middleware for protecting GraphQL resolvers
 - Dependencies: JWT implementation
 - Estimated effort: Medium
 - Phase: 1`,
-      labels: ["phase-1", "security", "middleware", "medium"]
+      labels: ['phase-1', 'security', 'middleware', 'medium'],
     },
     // Testing & Documentation
     {
-      title: "[Testing] Write unit tests for business logic",
+      title: '[Testing] Write unit tests for business logic',
       body: `## Objective
 Create comprehensive unit tests for all business logic services
 
@@ -253,10 +253,10 @@ Create comprehensive unit tests for all business logic services
 - Dependencies: All services implemented
 - Estimated effort: Large
 - Phase: 1`,
-      labels: ["phase-1", "testing", "unit-tests", "large"]
+      labels: ['phase-1', 'testing', 'unit-tests', 'large'],
     },
     {
-      title: "[Testing] Create integration tests for GraphQL resolvers",
+      title: '[Testing] Create integration tests for GraphQL resolvers',
       body: `## Objective
 Create integration tests for all GraphQL resolvers with database
 
@@ -271,10 +271,10 @@ Create integration tests for all GraphQL resolvers with database
 - Dependencies: All GraphQL resolvers
 - Estimated effort: Large
 - Phase: 1`,
-      labels: ["phase-1", "testing", "integration", "large"]
+      labels: ['phase-1', 'testing', 'integration', 'large'],
     },
     {
-      title: "[Documentation] Create API documentation",
+      title: '[Documentation] Create API documentation',
       body: `## Objective
 Generate comprehensive API documentation from GraphQL schema
 
@@ -289,14 +289,14 @@ Generate comprehensive API documentation from GraphQL schema
 - Dependencies: Complete GraphQL API
 - Estimated effort: Medium
 - Phase: 1`,
-      labels: ["phase-1", "documentation", "api", "medium"]
-    }
+      labels: ['phase-1', 'documentation', 'api', 'medium'],
+    },
   ],
 
-  "phase-2": [
+  'phase-2': [
     // Event System
     {
-      title: "[Events] Implement in-memory event bus",
+      title: '[Events] Implement in-memory event bus',
       body: `## Objective
 Create event bus with publish/subscribe pattern for domain events
 
@@ -311,10 +311,11 @@ Create event bus with publish/subscribe pattern for domain events
 - Dependencies: EventStore model
 - Estimated effort: Large
 - Phase: 2`,
-      labels: ["phase-2", "events", "architecture", "large"]
+      labels: ['phase-2', 'events', 'architecture', 'large'],
     },
     {
-      title: "[Events] Create domain events (UserRegistered, AccountCreated, etc.)",
+      title:
+        '[Events] Create domain events (UserRegistered, AccountCreated, etc.)',
       body: `## Objective
 Define all banking domain events with proper data structures
 
@@ -329,10 +330,10 @@ Define all banking domain events with proper data structures
 - Dependencies: Event bus implementation
 - Estimated effort: Medium
 - Phase: 2`,
-      labels: ["phase-2", "events", "domain", "medium"]
+      labels: ['phase-2', 'events', 'domain', 'medium'],
     },
     {
-      title: "[Events] Add event handlers for notifications",
+      title: '[Events] Add event handlers for notifications',
       body: `## Objective
 Create event handlers that trigger notifications for business events
 
@@ -347,11 +348,11 @@ Create event handlers that trigger notifications for business events
 - Dependencies: Domain events, Notification service
 - Estimated effort: Medium
 - Phase: 2`,
-      labels: ["phase-2", "events", "notifications", "medium"]
+      labels: ['phase-2', 'events', 'notifications', 'medium'],
     },
     // Caching Layer
     {
-      title: "[Cache] Set up Redis with Docker Compose",
+      title: '[Cache] Set up Redis with Docker Compose',
       body: `## Objective
 Add Redis service to Docker Compose and configure connection pooling
 
@@ -366,10 +367,10 @@ Add Redis service to Docker Compose and configure connection pooling
 - Dependencies: Docker Compose setup
 - Estimated effort: Medium
 - Phase: 2`,
-      labels: ["phase-2", "cache", "redis", "medium"]
+      labels: ['phase-2', 'cache', 'redis', 'medium'],
     },
     {
-      title: "[Cache] Implement cache-aside pattern for user profiles",
+      title: '[Cache] Implement cache-aside pattern for user profiles',
       body: `## Objective
 Add caching for user profile data with proper invalidation
 
@@ -384,10 +385,10 @@ Add caching for user profile data with proper invalidation
 - Dependencies: Redis setup, User service
 - Estimated effort: Medium
 - Phase: 2`,
-      labels: ["phase-2", "cache", "user-profiles", "medium"]
+      labels: ['phase-2', 'cache', 'user-profiles', 'medium'],
     },
     {
-      title: "[Cache] Add caching for account balances",
+      title: '[Cache] Add caching for account balances',
       body: `## Objective
 Implement write-through caching for frequently updated account balances
 
@@ -402,11 +403,11 @@ Implement write-through caching for frequently updated account balances
 - Dependencies: Redis setup, Account service
 - Estimated effort: Medium
 - Phase: 2`,
-      labels: ["phase-2", "cache", "balances", "medium"]
+      labels: ['phase-2', 'cache', 'balances', 'medium'],
     },
     // Notifications
     {
-      title: "[Notification] Design notification service architecture",
+      title: '[Notification] Design notification service architecture',
       body: `## Objective
 Create notification service with template support and multi-channel delivery
 
@@ -421,10 +422,10 @@ Create notification service with template support and multi-channel delivery
 - Dependencies: Event system
 - Estimated effort: Large
 - Phase: 2`,
-      labels: ["phase-2", "notifications", "architecture", "large"]
+      labels: ['phase-2', 'notifications', 'architecture', 'large'],
     },
     {
-      title: "[Notification] Implement email notification integration",
+      title: '[Notification] Implement email notification integration',
       body: `## Objective
 Integrate with external email service provider for email notifications
 
@@ -439,14 +440,14 @@ Integrate with external email service provider for email notifications
 - Dependencies: Notification service
 - Estimated effort: Medium
 - Phase: 2`,
-      labels: ["phase-2", "notifications", "email", "medium"]
-    }
+      labels: ['phase-2', 'notifications', 'email', 'medium'],
+    },
   ],
 
-  "phase-3": [
+  'phase-3': [
     // Architecture Refactoring
     {
-      title: "[Architecture] Refactor into Authentication module",
+      title: '[Architecture] Refactor into Authentication module',
       body: `## Objective
 Extract authentication logic into separate module with clear boundaries
 
@@ -461,10 +462,10 @@ Extract authentication logic into separate module with clear boundaries
 - Dependencies: Existing auth code
 - Estimated effort: Large
 - Phase: 3`,
-      labels: ["phase-3", "architecture", "modules", "large"]
+      labels: ['phase-3', 'architecture', 'modules', 'large'],
     },
     {
-      title: "[Architecture] Create Account module with boundaries",
+      title: '[Architecture] Create Account module with boundaries',
       body: `## Objective
 Extract account management into separate module following DDD principles
 
@@ -479,11 +480,11 @@ Extract account management into separate module following DDD principles
 - Dependencies: Module architecture
 - Estimated effort: Large
 - Phase: 3`,
-      labels: ["phase-3", "architecture", "accounts", "large"]
+      labels: ['phase-3', 'architecture', 'accounts', 'large'],
     },
     // RabbitMQ Integration
     {
-      title: "[Message Queue] Set up RabbitMQ cluster",
+      title: '[Message Queue] Set up RabbitMQ cluster',
       body: `## Objective
 Replace in-memory events with persistent RabbitMQ message broker
 
@@ -498,11 +499,11 @@ Replace in-memory events with persistent RabbitMQ message broker
 - Dependencies: Docker Compose
 - Estimated effort: Large
 - Phase: 3`,
-      labels: ["phase-3", "messaging", "rabbitmq", "large"]
+      labels: ['phase-3', 'messaging', 'rabbitmq', 'large'],
     },
     // Monitoring
     {
-      title: "[Monitoring] Set up Prometheus monitoring",
+      title: '[Monitoring] Set up Prometheus monitoring',
       body: `## Objective
 Implement production-grade metrics collection with Prometheus
 
@@ -517,14 +518,14 @@ Implement production-grade metrics collection with Prometheus
 - Dependencies: Modular architecture
 - Estimated effort: Large
 - Phase: 3`,
-      labels: ["phase-3", "monitoring", "prometheus", "large"]
-    }
+      labels: ['phase-3', 'monitoring', 'prometheus', 'large'],
+    },
   ],
 
-  "phase-4": [
+  'phase-4': [
     // Security Enhancement
     {
-      title: "[Security] Implement OAuth 2.0 authorization server",
+      title: '[Security] Implement OAuth 2.0 authorization server',
       body: `## Objective
 Add enterprise-grade OAuth 2.0 authorization capabilities
 
@@ -539,10 +540,10 @@ Add enterprise-grade OAuth 2.0 authorization capabilities
 - Dependencies: Existing auth system
 - Estimated effort: Large
 - Phase: 4`,
-      labels: ["phase-4", "security", "oauth", "large"]
+      labels: ['phase-4', 'security', 'oauth', 'large'],
     },
     {
-      title: "[Security] Add multi-factor authentication",
+      title: '[Security] Add multi-factor authentication',
       body: `## Objective
 Implement MFA with TOTP, SMS, and biometric support
 
@@ -557,11 +558,11 @@ Implement MFA with TOTP, SMS, and biometric support
 - Dependencies: OAuth 2.0 implementation
 - Estimated effort: Large
 - Phase: 4`,
-      labels: ["phase-4", "security", "mfa", "large"]
+      labels: ['phase-4', 'security', 'mfa', 'large'],
     },
     // Compliance
     {
-      title: "[Compliance] Add Brazilian banking regulation compliance",
+      title: '[Compliance] Add Brazilian banking regulation compliance',
       body: `## Objective
 Implement full compliance with Central Bank of Brazil regulations
 
@@ -576,11 +577,11 @@ Implement full compliance with Central Bank of Brazil regulations
 - Dependencies: Complete transaction system
 - Estimated effort: Large
 - Phase: 4`,
-      labels: ["phase-4", "compliance", "banking", "large"]
+      labels: ['phase-4', 'compliance', 'banking', 'large'],
     },
     // DevOps & Deployment
     {
-      title: "[DevOps] Implement CI/CD pipeline with security scanning",
+      title: '[DevOps] Implement CI/CD pipeline with security scanning',
       body: `## Objective
 Create comprehensive CI/CD pipeline with security and quality gates
 
@@ -595,10 +596,10 @@ Create comprehensive CI/CD pipeline with security and quality gates
 - Dependencies: Complete application
 - Estimated effort: Large
 - Phase: 4`,
-      labels: ["phase-4", "devops", "cicd", "large"]
+      labels: ['phase-4', 'devops', 'cicd', 'large'],
     },
     {
-      title: "[DevOps] Set up blue-green deployment",
+      title: '[DevOps] Set up blue-green deployment',
       body: `## Objective
 Implement zero-downtime deployment with blue-green strategy
 
@@ -613,19 +614,19 @@ Implement zero-downtime deployment with blue-green strategy
 - Dependencies: CI/CD pipeline
 - Estimated effort: Large
 - Phase: 4`,
-      labels: ["phase-4", "devops", "deployment", "large"]
-    }
-  ]
+      labels: ['phase-4', 'devops', 'deployment', 'large'],
+    },
+  ],
 };
 
 async function createIssues() {
-  console.log("🚀 Creating Banking System Development Cards...\n");
-  
+  console.log('🚀 Creating Banking System Development Cards...\n');
+
   let totalCreated = 0;
-  
+
   for (const [phase, tasks] of Object.entries(bankingSystemTasks)) {
     console.log(`📋 Creating ${tasks.length} cards for ${phase}...`);
-    
+
     for (const task of tasks) {
       try {
         await octokit.rest.issues.create({
@@ -633,26 +634,29 @@ async function createIssues() {
           repo: 'Banking-System-Development',
           title: task.title,
           body: task.body,
-          labels: task.labels
+          labels: task.labels,
         });
-        
+
         console.log(`✅ Created: ${task.title}`);
         totalCreated++;
-        
+
         // Add delay to avoid rate limiting
-        await new Promise(resolve => setTimeout(resolve, 100));
-        
+        await new Promise((resolve) => setTimeout(resolve, 100));
       } catch (error) {
         console.error(`❌ Failed to create: ${task.title}`, error.message);
       }
     }
-    
+
     console.log(`✨ Completed ${phase}\n`);
   }
-  
+
   console.log(`🎉 Successfully created ${totalCreated} banking system cards!`);
-  console.log("📊 Now go to your repository's Issues tab to see all created cards.");
-  console.log("🔄 Next step: Set up your GitHub Project board to organize these cards.");
+  console.log(
+    "📊 Now go to your repository's Issues tab to see all created cards.",
+  );
+  console.log(
+    '🔄 Next step: Set up your GitHub Project board to organize these cards.',
+  );
 }
 
 // Execute the script
