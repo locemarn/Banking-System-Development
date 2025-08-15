@@ -14,6 +14,7 @@ module.exports = {
     '!**/*.interface.ts',
     '!**/*.dto.ts',
     '!**/main.ts',
+    '!**/*.module.ts',
     '!**/config/**',
     '!**/common/entities/**',
     '!**/common/filters/**',
