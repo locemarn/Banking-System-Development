@@ -6,10 +6,15 @@ node_modules/
 dist/
 build/
 
-# Environment files
+# Environment files (exclude production/development secrets)
 .env
 .env.local
 .env.*.local
+.env.production
+.env.development
+
+# Test environment files are safe to commit
+# .env.test
 
 # IDE files
 .vscode/
