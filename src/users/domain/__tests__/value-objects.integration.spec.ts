@@ -228,7 +228,7 @@ describe('Value Objects Integration Tests', () => {
           type: 'cpf',
           value: '123.456.789-00',
           create: () => CPF.create('123.456.789-00'),
-          expectedMessage: 'Invalid CPF: 123.456.789-00',
+          expectedMessage: 'Invalid cpf format: 123.456.789-00',
         },
         {
           type: 'password',
